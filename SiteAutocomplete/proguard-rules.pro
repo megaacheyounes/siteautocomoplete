@@ -20,6 +20,9 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 #noinspection ShrinkerUnresolvedReference
+-keep class com.megaache.siteautocomplete.SiteAutocompleteFragment
+-keep class com.megaache.siteautocomplete.SiteAutocompleteMode
+
 #Huawei HMS rules
 -ignorewarnings
 -keepattributes EnclosingMethod
