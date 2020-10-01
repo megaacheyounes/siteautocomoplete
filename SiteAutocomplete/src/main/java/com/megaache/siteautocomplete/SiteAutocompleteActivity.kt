@@ -38,7 +38,7 @@ import java.util.*
 import kotlin.concurrent.thread
 
 
-class SiteAutocompleteActivity : AppCompatActivity() {
+internal class SiteAutocompleteActivity : AppCompatActivity() {
 
     companion object {
         //static variable the will hold the site that the user chooses,

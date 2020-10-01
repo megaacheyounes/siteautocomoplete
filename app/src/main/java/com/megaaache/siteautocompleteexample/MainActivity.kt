@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragment) as SiteAutocompleteFragment
 
         autocompleteFragment.run {
-            setActivityMode(SiteAutocompleteMode.OVERLAY)
+            setActivityMode(SiteAutocompleteMode.FULLSCREEN)
             setOnSiteSelectListener(
                 object : SiteAutocompleteFragment.SiteSelectionListener {
                     override fun onSiteSelected(site: Site) {

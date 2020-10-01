@@ -25,7 +25,6 @@ import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 import androidx.fragment.app.Fragment
 import com.huawei.hms.site.api.model.Site
 
-
 class SiteAutocompleteFragment : Fragment() {
 
     companion object {

@@ -36,7 +36,7 @@ import java.util.*
 /**
  * An autocompleteAdapter for the autocompleteTextView showing the result fo the Site kit queryAutocomplete
  */
-class SiteAutocompleteAdapter(
+internal class SiteAutocompleteAdapter(
     cx: Context,
     private val searchService: SearchService,
     private val resourceId: Int,
