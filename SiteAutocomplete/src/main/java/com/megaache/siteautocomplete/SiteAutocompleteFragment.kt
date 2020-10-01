@@ -23,7 +23,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 import androidx.fragment.app.Fragment
-import com.huawei.hms.site.api.model.Site
 
 class SiteAutocompleteFragment : Fragment() {
 
@@ -37,11 +36,6 @@ class SiteAutocompleteFragment : Fragment() {
 
     //reference to the autocompleteTextView
     private lateinit var autoCompleteTextView: AppCompatAutoCompleteTextView
-
-    interface SiteSelectionListener {
-        fun onSiteSelected(site: Site)
-    }
-
 
     /**
      * the callback that wil lbe invoked when user clicks on an item from the suggestions list

@@ -22,6 +22,7 @@
 #noinspection ShrinkerUnresolvedReference
 -keep class com.megaache.siteautocomplete.SiteAutocompleteFragment
 -keep class com.megaache.siteautocomplete.SiteAutocompleteMode
+-keep class com.megaache.siteautocomplete.SiteSelectionListener
 
 #Huawei HMS rules
 -ignorewarnings

@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.huawei.hms.site.api.model.Site
 import com.megaache.siteautocomplete.SiteAutocompleteFragment
 import com.megaache.siteautocomplete.SiteAutocompleteMode
+import com.megaache.siteautocomplete.SiteSelectionListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         autocompleteFragment.run {
             setActivityMode(SiteAutocompleteMode.FULLSCREEN)
             setOnSiteSelectListener(
-                object : SiteAutocompleteFragment.SiteSelectionListener {
+                object : SiteSelectionListener {
                     override fun onSiteSelected(site: Site) {
                         Log.d("onSiteSelected", site.name)
                         toast("on site selected:  ${site.name}")
@@ -61,6 +62,10 @@ class MainActivity : AppCompatActivity() {
                             )
                             showHuaweiSitePhoto(this)
                         }
+                    }
+
+                    override fun onError(error: Error) {
+
                     }
                 }
             )
