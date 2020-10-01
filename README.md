@@ -53,7 +53,7 @@ then add `SiteAutocompleteFragment` fragment dynamically using the `supportFragm
 
 
 - Fullscreen mode:
-<img alt="fullscreen mode" src="https://git.huawei.com/y84154336/autocompletesupportfragment/blob/master/screenshots/fullscreen_mode.gif"  width="295" height="640" />
+<img alt="fullscreen mode" src="screenshots/fullscreen_mode.gif"  width="295" height="640" />
 [fullscreen mode](screenshots/fullscreen_mode.gif)
 ```kotlin
             autocompleteFragment.setActivityMode(SiteAutocompleteMode.FULLSCREEN)
