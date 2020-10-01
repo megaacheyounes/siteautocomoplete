@@ -10,6 +10,23 @@ Shows suggestions when searching for places
 See [configuration Instructions](CONFIGURATION.md).
 
 ## Installation
+add jitpack repo to your project level `build.gradle` file:
+
+``` groovy
+        allprojects {
+    		repositories {
+    			...
+    			maven { url 'https://jitpack.io' }
+    		}
+    	}
+```
+add the library to your app level 'build.bradle' file:
+``` groovy
+	dependencies {
+	        implementation 'com.github.megaacheyounes:siteautocomoplete:1.0.0'
+	}
+```
+
 
 ## Add the fragment
 
