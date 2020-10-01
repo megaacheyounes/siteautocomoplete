@@ -17,9 +17,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
+            android:outlineProvider="bounds"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="2dp"
             app:titleTextColor="@color/textPrimary">
 
             <EditText
@@ -35,6 +37,7 @@
                 android:textColor="@color/textPrimary"
                 android:textColorHint="@color/textSecondary"
                 android:textSize="20sp"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

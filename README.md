@@ -54,10 +54,11 @@ then add `SiteAutocompleteFragment` fragment dynamically using the `supportFragm
 
 - Fullscreen mode:
 <img alt="fullscreen mode" src="screenshots/fullscreen_mode.gif"  width="295" height="640" />
-[fullscreen mode](screenshots/fullscreen_mode.gif)
+
 ```kotlin
             autocompleteFragment.setActivityMode(SiteAutocompleteMode.FULLSCREEN)
 ```
+
 - Overlay mode:
 <img alt="overlay mode" src="screenshots/overlay_mode.gif"  width="295" height="640" />
 
@@ -66,6 +67,7 @@ then add `SiteAutocompleteFragment` fragment dynamically using the `supportFragm
 ```
 
 ## Listen for Place selection event
+
 ```kotlin
     fragment.setOnSiteSelectListener(
                 object : AutocompleteSupportFragment.SiteSelectionListener {

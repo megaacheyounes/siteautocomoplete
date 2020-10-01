@@ -39,6 +39,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/editText"
         app:pressedTranslationZ="0dp"
+        tools:tint="@color/textSecondary"
         app:tint="@color/textSecondary" />
 
 

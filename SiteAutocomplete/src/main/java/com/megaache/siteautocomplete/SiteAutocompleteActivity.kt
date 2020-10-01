@@ -27,6 +27,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import com.huawei.agconnect.config.AGConnectServicesConfig
 import com.huawei.hms.site.api.SearchService
 import com.huawei.hms.site.api.SearchServiceFactory
@@ -180,9 +181,12 @@ class SiteAutocompleteActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         clearMenuButton = menu!!.findItem(R.id.clear)
-        if (!isInFullScreenMode) {
-            clearMenuButton.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_close_24)
-        }
+        //   if (!isInFullScreenMode) {
+
+        val tintedIcon = DrawableCompat.wrap(clearMenuButton.icon!!)
+        DrawableCompat.setTint(tintedIcon, ContextCompat.getColor(this, R.color.textPrimary))
+        clearMenuButton.icon = tintedIcon
+        // }
         clearMenuButton.isVisible = false
         return super.onCreateOptionsMenu(menu)
     }
