@@ -34,9 +34,9 @@ import com.huawei.hms.site.api.model.Site
 import java.util.*
 
 /**
- * An adapter for the autocompleteTextView showing the result fo the Site kit queryAutocomplete
+ * An autocompleteAdapter for the autocompleteTextView showing the result fo the Site kit queryAutocomplete
  */
-class SiteAdapter(
+class SiteAutocompleteAdapter(
     cx: Context,
     private val searchService: SearchService,
     private val resourceId: Int,
@@ -44,7 +44,7 @@ class SiteAdapter(
 ) : ArrayAdapter<Site>(cx, resourceId, items) {
 
     companion object {
-        const val TAG = "SAF-SiteAdapter"
+        var TAG = SiteAutocompleteFragment.TAG
         const val NO_ERROR = -1
         const val ITEM_ANIMATION_DELAY = 50 //in milliseconds
     }
@@ -101,7 +101,7 @@ class SiteAdapter(
 
                 onLoadingStateChanged?.invoke(false)
 
-                if (request.query != this@SiteAdapter.query) {
+                if (request.query != this@SiteAutocompleteAdapter.query) {
                     //the query has changed by the time we got this result,
                     // we must ignore it
                     // we should clear the existing result if the new query is empty

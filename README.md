@@ -27,7 +27,6 @@ add the library to your app level 'build.bradle' file:
 	}
 ```
 
-
 ## Add the fragment
 
 ### Method 1 (xml):

@@ -2,9 +2,7 @@
 <resources>
 
     <style name="theme_fullscreen" parent="Theme.AppCompat.Light.NoActionBar">
-        <!--        <item name="windowActionBar">false</item>-->
-        <!--        <item name="windowNoTitle">true</item>-->
-        <item name="android:textColorSecondary">@color/textSecondary</item>
+         <item name="android:textColorSecondary">@color/textSecondary</item>
 
     </style>
 
@@ -20,16 +18,6 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="dialogCornerRadius">@dimen/dialog_corner_radius</item>
     </style>
-
-    <!--    <style name="toolbar_fullscreen" parent="Widget.AppCompat.Light.ActionBar">-->
-    <!--        <item name="android:textColorSecondary">@color/emui_color_gray_10</item>-->
-    <!--        <item name="android:background">?colorPrimary</item>-->
-    <!--    </style>-->
-
-    <!--    <style name="toolbar_overlay" parent="Widget.AppCompat.Light.ActionBar">-->
-    <!--        <item name="android:textColorSecondary">@color/emui_color_gray_10</item>-->
-    <!--        <item name="android:background">@color/white</item>-->
-    <!--    </style>-->
 
 
 </resources>

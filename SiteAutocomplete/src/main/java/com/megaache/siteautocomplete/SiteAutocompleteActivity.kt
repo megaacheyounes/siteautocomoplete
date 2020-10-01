@@ -32,7 +32,7 @@ import com.huawei.agconnect.config.AGConnectServicesConfig
 import com.huawei.hms.site.api.SearchService
 import com.huawei.hms.site.api.SearchServiceFactory
 import com.huawei.hms.site.api.model.Site
-import com.megaache.siteautocomplete.SiteAdapter.Companion.NO_ERROR
+import com.megaache.siteautocomplete.SiteAutocompleteAdapter.Companion.NO_ERROR
 import kotlinx.android.synthetic.main.activity_support_map_fragment.*
 import java.util.*
 import kotlin.concurrent.thread
@@ -54,8 +54,8 @@ class SiteAutocompleteActivity : AppCompatActivity() {
 
     private var isInFullScreenMode: Boolean = false
 
-    //the adapter holding the list of the suggestions
-    internal lateinit var adapter: SiteAdapter
+    //the autocompleteAdapter holding the list of the suggestions
+    internal lateinit var autocompleteAdapter: SiteAutocompleteAdapter
 
     //the clear button (x on the left side of the edit text)
     private lateinit var clearMenuButton: MenuItem
@@ -109,8 +109,8 @@ class SiteAutocompleteActivity : AppCompatActivity() {
     private fun initView() {
         val searchService: SearchService = SearchServiceFactory.create(this, hmsApiKey)
 
-        //initiate the adapter
-        adapter = SiteAdapter(
+        //initiate the autocompleteAdapter
+        autocompleteAdapter = SiteAutocompleteAdapter(
             this,
             searchService,
             R.layout.simple_list_item_2,
@@ -118,23 +118,23 @@ class SiteAutocompleteActivity : AppCompatActivity() {
         )
 
         //observe the loading liveData, and update the UI whenever there is a change
-        adapter.onLoadingStateChanged = this::loading
+        autocompleteAdapter.onLoadingStateChanged = this::loading
         loading(false)
 
         //observe the error liveData, and update the UI whenever there is a change
-        adapter.onError = this::onError
+        autocompleteAdapter.onError = this::onError
         onError(NO_ERROR)
         //register a listener to try the last search when the "try again" link is clicked
         network_error_try_again.setOnClickListener {
-            adapter.searchSites(editText.text.toString())
+            autocompleteAdapter.searchSites(editText.text.toString())
         }
         //hide the list's default item divider
         list.divider = null
-        //set the adapter
-        list.adapter = adapter
+        //set the autocompleteAdapter
+        list.adapter = autocompleteAdapter
         //register a listener to be invoked when an item is clicked
         list.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            val site = adapter.getItem(position)
+            val site = autocompleteAdapter.getItem(position)
             Log.d(TAG, "item clicked $position ${site!!.name}")
             sendResult(site)
 
@@ -147,7 +147,7 @@ class SiteAutocompleteActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                adapter.searchSites(s.toString())
+                autocompleteAdapter.searchSites(s.toString())
                 updateClearButton()
             }
 
@@ -255,7 +255,7 @@ class SiteAutocompleteActivity : AppCompatActivity() {
         //hide the keyboard
         val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
-//        adapter.onError = null
-//        adapter.onLoadingStateChanged = null
+//        autocompleteAdapter.onError = null
+//        autocompleteAdapter.onLoadingStateChanged = null
     }
 }

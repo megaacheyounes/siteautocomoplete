@@ -6,7 +6,6 @@
         <activity
             android:name="com.megaache.siteautocomplete.SiteAutocompleteActivity"
             android:theme="@style/theme_overlay" />
-        <!--        android:theme="@style/theme_overlay"-->
     </application>
 
 </manifest>
