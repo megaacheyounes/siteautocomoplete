@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AutocompleteSupportFragment</string>
+    <string name="search_places">البحث في المواقع …</string>
+    <string name="network_error">خطأ في الشبكة %1$d</string>
+    <string name="search">بحث</string>
+    <string name="network_error_icon">أيقونة خطأ الشبكة</string>
+    <string name="loading">جار التحميل</string>
+    <string name="try_again">حاول مجددا</string>
+
+</resources>

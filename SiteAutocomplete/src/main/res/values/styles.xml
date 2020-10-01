@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="theme_fullscreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--        <item name="windowActionBar">false</item>-->
+        <!--        <item name="windowNoTitle">true</item>-->
+        <item name="android:textColorSecondary">@color/textSecondary</item>
+
+    </style>
+
+    <style name="theme_overlay" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="android:dialogCornerRadius">@dimen/dialog_corner_radius</item>
+        <item name="cornerSize">@dimen/dialog_corner_radius</item>
+        <item name="android:textColorSecondary">@color/textSecondary</item>
+        <item name="dialogPreferredPadding">16dp</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="dialogCornerRadius">@dimen/dialog_corner_radius</item>
+    </style>
+
+    <!--    <style name="toolbar_fullscreen" parent="Widget.AppCompat.Light.ActionBar">-->
+    <!--        <item name="android:textColorSecondary">@color/emui_color_gray_10</item>-->
+    <!--        <item name="android:background">?colorPrimary</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="toolbar_overlay" parent="Widget.AppCompat.Light.ActionBar">-->
+    <!--        <item name="android:textColorSecondary">@color/emui_color_gray_10</item>-->
+    <!--        <item name="android:background">@color/white</item>-->
+    <!--    </style>-->
+
+
+</resources>

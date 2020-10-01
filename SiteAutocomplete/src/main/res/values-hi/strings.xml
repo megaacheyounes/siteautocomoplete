@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AutocompleteSupportFragment</string>
+    <string name="search_places">साइटें खोजें …</string>
+    <string name="network_error">नेटवर्क त्रुटि %1$d</string>
+    <string name="search">खोज</string>
+    <string name="network_error_icon">नेटवर्क त्रुटि आइकन</string>
+    <string name="loading">लोड हो रहा है</string>
+    <string name="try_again">पुनः प्रयास करें</string>
+</resources>

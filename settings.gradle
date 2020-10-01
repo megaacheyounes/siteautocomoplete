@@ -1,0 +1,2 @@
+include ':app', ':SiteAutocomplete'
+rootProject.name='AutocompleteSupportFragment'

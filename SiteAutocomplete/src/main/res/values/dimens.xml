@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="start_icon_size">48dp</dimen>
+    <!--    should be start_icon_size + 16dp-->
+    <dimen name="autocomplete_start_padding">64dp</dimen>
+    <dimen name="list_item_animation_duration">500</dimen>
+
+    <dimen name="dialog_corner_radius">8dp</dimen>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AutocompleteSupportFragment</string>
+    <string name="search_places">Поиск сайтов …</string>
+    <string name="network_error">Ошибка сети %1$d</string>
+    <string name="search">поиск</string>
+    <string name="network_error_icon">значок ошибки сети</string>
+    <string name="loading">погрузка</string>
+    <string name="try_again">Попробуйте еще раз</string>
+
+</resources>

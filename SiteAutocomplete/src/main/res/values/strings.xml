@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AutocompleteSupportFragment</string>
+    <string name="search_places">Search sites…</string>
+    <string name="network_error">Network error %1$d</string>
+    <string name="search">Search</string>
+    <string name="network_error_icon">network error icon</string>
+    <string name="loading">loading</string>
+    <string name="try_again">Try again</string>
+
+</resources>

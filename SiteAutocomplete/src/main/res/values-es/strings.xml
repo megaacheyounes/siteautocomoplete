@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AutocompleteSupportFragment</string>
+    <string name="search_places">Buscar sitios …</string>
+    <string name="network_error">Error de red %1$d</string>
+    <string name="search">buscar</string>
+    <string name="network_error_icon">icono de error de red</string>
+    <string name="loading">cargando</string>
+    <string name="try_again">Inténtalo de nuevo</string>
+
+</resources>

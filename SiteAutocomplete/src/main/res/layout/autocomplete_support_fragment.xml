@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".SiteAutocompleteFragment">
+
+
+    <AutoCompleteTextView
+        android:id="@+id/editText"
+        style="@style/Base.Widget.MaterialComponents.AutoCompleteTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/bg"
+        android:hint="@string/search_places"
+        android:paddingStart="@dimen/autocomplete_start_padding"
+        android:paddingLeft="@dimen/autocomplete_start_padding"
+        android:paddingEnd="@dimen/autocomplete_start_padding"
+        android:paddingRight="@dimen/autocomplete_start_padding"
+        android:textColor="@color/textPrimary"
+        android:textColorHint="@color/textSecondary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/start_icon"
+        android:layout_width="@dimen/start_icon_size"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/search"
+        android:src="@drawable/ic_baseline_search_24"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editText"
+        app:pressedTranslationZ="0dp"
+        app:tint="@color/textSecondary" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AutocompleteSupportFragment</string>
+    <string name="search_places">Websites suchen…</string>
+    <string name="network_error">Netzwerkfehler %1$d</string>
+    <string name="search">Suche</string>
+    <string name="network_error_icon">Netzwerkfehlersymbol</string>
+    <string name="loading">Wird geladen</string>
+    <string name="try_again">Versuch es noch einmal</string>
+
+</resources>

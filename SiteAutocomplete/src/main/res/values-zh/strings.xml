@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AutocompleteSupportFragment</string>
+    <string name="search_places">搜索网站…</string>
+    <string name="network_error">网络错误 %1$d</string>
+    <string name="search">搜索</string>
+    <string name="network_error_icon">网络错误图标</string>
+    <string name="loading">装货</string>
+    <string name="try_again">再试一次</string>
+
+</resources>
