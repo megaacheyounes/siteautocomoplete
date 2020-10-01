@@ -57,7 +57,7 @@ declare the fragment container:
 ```
 then add `SiteAutocompleteFragment` fragment dynamically using the `supportFragmentManager`:
 ``` kotlin
-   val autocompleteFragment = SiteAutocompleteFragment.newInstance()
+   val autocompleteFragment = SiteAutocompleteFragment()
 
    supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
             .commit()
@@ -86,9 +86,12 @@ then add `SiteAutocompleteFragment` fragment dynamically using the `supportFragm
 
 ```kotlin
     fragment.setOnSiteSelectListener(
-                object : AutocompleteSupportFragment.SiteSelectionListener {
+                object : SiteSelectionListener {
                     override fun onSiteSelected(site: Site) {
                         Log.d("onSiteSelected", site.name)
+                    }
+                    override fun onError(error: Error) {
+                        Log.d("onError", error.toString())
                     }
                 }
             )
