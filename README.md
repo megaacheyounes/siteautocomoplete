@@ -28,7 +28,7 @@ add jitpack repo to your project level `build.gradle` file:
 add the library to your app level 'build.bradle' file:
 ``` groovy
 	dependencies {
-	        implementation 'com.github.megaacheyounes:siteautocomoplete:1.0.3'
+	        implementation 'com.github.megaacheyounes:siteautocomoplete:1.0.4'
 	}
 ```
 
