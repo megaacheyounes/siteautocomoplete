@@ -1,3 +1,9 @@
+<a href="http://developer.android.com/index.html" target="_blank"><img src="https://img.shields.io/badge/platform-android-green.svg"/></a>
+<a href="https://android-arsenal.com/api?level=21"><img src="https://img.shields.io/badge/API-21%2B-green.svg?style=flat" border="0" alt="API"></a>
+<a href="https://opensource.org/licenses/Apache-2.0" target="_blank"><img src="https://img.shields.io/badge/License-Apache_v2.0-blue.svg?style=flat"/></a>
+[![uses gms](https://img.shields.io/badge/USES-GMS-green.svg)](https://shields.io/)
+[![uses hms](https://img.shields.io/badge/USES-HMS-red.svg)](https://shields.io/)
+
 # An AutocompleteSupportFragment for HMS Site kit
 
 This library provides a fragment similar to the Google Places [AutocompleteSupportFragment](https://developers.google.com/places/android-sdk/autocomplete), for the HMS [Site kit](https://developer.huawei.com/consumer/en/hms/huawei-sitekit)
@@ -15,7 +21,6 @@ add jitpack repo to your project level `build.gradle` file:
 ``` groovy
         allprojects {
     		repositories {
-    			...
     			maven { url 'https://jitpack.io' }
     		}
     	}
@@ -28,6 +33,7 @@ add the library to your app level 'build.bradle' file:
 ```
 
 ## Add the fragment
+see MainActivity and MainActivityJava for complete example
 
 ### Method 1 (xml):
 add the fragment tag with the name attribute:
