@@ -21,7 +21,7 @@ import com.huawei.hms.site.api.model.Site
  * Created by YounesMegaacheY84154336 on 10/1/2020.
  *  callback for getting selected site suggestion
  */
-interface SiteSelectionListener {
+public interface SiteSelectionListener {
     fun onSiteSelected(site: Site)
     fun onError(error: Error)
 }
