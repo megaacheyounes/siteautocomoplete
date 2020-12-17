@@ -28,7 +28,7 @@ add jitpack repo to your project level `build.gradle` file:
 add the library to your app level 'build.bradle' file:
 ``` groovy
 	dependencies {
-	        implementation 'com.github.megaacheyounes:siteautocomoplete:1.0.4'
+	        implementation 'com.github.megaacheyounes:siteautocomoplete:1.0.5'
 	}
 ```
 
@@ -91,7 +91,7 @@ then add `SiteAutocompleteFragment` fragment dynamically using the `supportFragm
 ## Listen for Place selection event
 
 ```kotlin
-    fragment.setOnSiteSelectListener(
+          autocompleteFragment.setOnSiteSelectListener(
                 object : SiteSelectionListener {
                     override fun onSiteSelected(site: Site) {
                         Log.d("onSiteSelected", site.name)
@@ -101,6 +101,13 @@ then add `SiteAutocompleteFragment` fragment dynamically using the `supportFragm
                     }
                 }
             )
+```
+
+## show selected site on search view:
+if you call this method, when the user select a site (place), the name and the address of that place will replace the placeholder "search sites..." in search view (autocomplete EditText ),
+if false passed then only the name of the selected site will be shown
+```kotlin
+         autocompleteFragment.showSelectedSiteOnSearchView(true)
 ```
 
 ## Internationalization

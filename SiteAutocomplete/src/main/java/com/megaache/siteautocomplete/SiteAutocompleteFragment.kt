@@ -21,6 +21,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 import androidx.fragment.app.Fragment
 
@@ -35,8 +36,10 @@ class SiteAutocompleteFragment : Fragment() {
     private var mode: SiteAutocompleteMode = SiteAutocompleteMode.FULLSCREEN
 
     //reference to the autocompleteTextView
-    private lateinit var autoCompleteTextView: AppCompatAutoCompleteTextView
+    private lateinit var autoCompleteTextView: TextView
 
+    private var showSelectedSiteOnSearchView = false
+    private var showFullAddress = false
     /**
      * the callback that wil lbe invoked when user clicks on an item from the suggestions list
      */
@@ -55,6 +58,7 @@ class SiteAutocompleteFragment : Fragment() {
         autoCompleteTextView.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) startAutocompleteActivity()
         }
+
 
 //        //for debugging
 //        Handler(Looper.myLooper()!!).postDelayed({
@@ -84,6 +88,11 @@ class SiteAutocompleteFragment : Fragment() {
             this.mode == SiteAutocompleteMode.FULLSCREEN
         )
 
+        i.putExtra(
+            SiteAutocompleteActivity.TEXT,
+            this.autoCompleteTextView.text.toString()
+        )
+
         startActivityForResult(
             i,
             SITE_REQ_CODE
@@ -108,6 +117,11 @@ class SiteAutocompleteFragment : Fragment() {
 
             temp?.let {
                 onSiteSelected.onSiteSelected(temp)
+                if (showSelectedSiteOnSearchView) {
+                    val text =   if(showFullAddress) "${temp.name}, ${temp.formatAddress}" else temp.name.toString()
+                    autoCompleteTextView.setText(text)
+
+                }
             }
 
         }
@@ -122,5 +136,15 @@ class SiteAutocompleteFragment : Fragment() {
         this.onSiteSelected = onSiteSelected
     }
 
+    /**
+     * if you call this method, when the user select a site (place),
+     * the name and the address of that place will replace the placeholder "search sites..." in search view (autocomplete EditText )
+     * @param showFullAddress: if true the name and address of the site will be shown, else only name
+     */
+    fun showSelectedSiteOnSearchView(showFullAddress:Boolean = false ) {
+        this.showSelectedSiteOnSearchView = true
+        this.showFullAddress = showFullAddress
+    }
 
 }
+

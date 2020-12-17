@@ -48,6 +48,8 @@ class MainActivityJava extends AppCompatActivity {
 
         autocompleteFragment.setActivityMode(SiteAutocompleteMode.FULLSCREEN);
 
+        autocompleteFragment.showSelectedSiteOnSearchView(true);
+
         autocompleteFragment.setOnSiteSelectListener(new SiteSelectionListener() {
             @Override
             public void onSiteSelected(@NotNull Site site) {

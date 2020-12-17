@@ -48,6 +48,9 @@ class MainActivity : AppCompatActivity() {
 
         autocompleteFragment.run {
             setActivityMode(SiteAutocompleteMode.FULLSCREEN)
+
+            showSelectedSiteOnSearchView(true)
+
             setOnSiteSelectListener(
                 object : SiteSelectionListener {
                     override fun onSiteSelected(site: Site) {

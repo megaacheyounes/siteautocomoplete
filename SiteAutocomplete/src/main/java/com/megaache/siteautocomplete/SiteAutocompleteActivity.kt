@@ -19,6 +19,8 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -47,11 +49,18 @@ internal class SiteAutocompleteActivity : AppCompatActivity() {
         var EXTRA_SITE: Site? = null
         const val EXTRA_FLAG_FULL_SCREEN = "EXTRA_FLAG_FULL_SCREEN"
 
+        const val TEXT = "text"
+
         //tag, duh!
         private val TAG = SiteAutocompleteFragment.TAG
+
+        //time after user stops typing to assume he finished typing
+        //the search request will be sent after 500ms of the last letter entered if not more letter is entered
+        const val DEBOUNCE_DURATION = 800
+
     }
 
-
+    private var first = true
     private var isInFullScreenMode: Boolean = false
 
     //the autocompleteAdapter holding the list of the suggestions
@@ -62,6 +71,14 @@ internal class SiteAutocompleteActivity : AppCompatActivity() {
 
     //hms api key
     private lateinit var hmsApiKey: String
+
+
+    private var searchRunnable = Runnable { }
+
+    /**
+     * will run [searchRunnable] after delay [DEBOUNCE_DURATION], to multiple request for each latter the user enter in the editText
+     */
+    private var handler = Handler(Looper.myLooper()!!)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isInFullScreenMode = intent.getBooleanExtra(EXTRA_FLAG_FULL_SCREEN, false)
@@ -126,7 +143,7 @@ internal class SiteAutocompleteActivity : AppCompatActivity() {
         onError(NO_ERROR)
         //register a listener to try the last search when the "try again" link is clicked
         network_error_try_again.setOnClickListener {
-            autocompleteAdapter.searchSites(editText.text.toString())
+            debounceSearch(editText.text.toString(), true)
         }
         //hide the list's default item divider
         list.divider = null
@@ -147,7 +164,8 @@ internal class SiteAutocompleteActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                autocompleteAdapter.searchSites(s.toString())
+                if (first) return
+                debounceSearch(s.toString())
                 updateClearButton()
             }
 
@@ -158,6 +176,21 @@ internal class SiteAutocompleteActivity : AppCompatActivity() {
 
     }
 
+    fun debounceSearch(query: String, immediate: Boolean = false) {
+        //cancel all previous search requestes
+        handler.removeCallbacksAndMessages(null)
+
+
+        searchRunnable = Runnable {
+            autocompleteAdapter.searchSites(query)
+        }
+
+        /**
+         * send request after [DEBOUNCE_DURATION] ms, this will be canceled if user enter another letter into the search editText within [DEBOUNCE_DURATION]
+         */
+        handler.postDelayed(searchRunnable, DEBOUNCE_DURATION.toLong())
+
+    }
 
     /**
      * clear the edit text if not empty
@@ -167,6 +200,22 @@ internal class SiteAutocompleteActivity : AppCompatActivity() {
         if (editText.text.isNotEmpty()) {
             editText.text.clear()
             updateClearButton()
+        }
+    }
+
+    /**
+     *
+     * show the selected site's name in the search editText,
+     * when enabled using [SiteAutocompleteFragment.showSelectedSiteOnSearchView]
+     */
+    private fun setSelectedSite() {
+        intent.getStringExtra(TEXT)?.let {
+            editText.setText(it)
+            //move cursor to end of editText
+            editText.setSelection(it.length)
+
+            updateClearButton()
+            first = false
         }
     }
 
@@ -188,6 +237,9 @@ internal class SiteAutocompleteActivity : AppCompatActivity() {
         clearMenuButton.icon = tintedIcon
         // }
         clearMenuButton.isVisible = false
+
+        setSelectedSite()
+
         return super.onCreateOptionsMenu(menu)
     }
 

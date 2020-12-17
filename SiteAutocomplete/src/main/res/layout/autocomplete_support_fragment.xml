@@ -4,21 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".SiteAutocompleteFragment">
 
 
-    <AutoCompleteTextView
+    <TextView
         android:id="@+id/editText"
         style="@style/Base.Widget.MaterialComponents.AutoCompleteTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/bg"
+        android:ellipsize="end"
         android:hint="@string/search_places"
+        android:lines="1"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:maxLines="1"
+        android:minLines="0"
         android:paddingStart="@dimen/autocomplete_start_padding"
         android:paddingLeft="@dimen/autocomplete_start_padding"
         android:paddingEnd="@dimen/autocomplete_start_padding"
         android:paddingRight="@dimen/autocomplete_start_padding"
+        android:text="lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum"
         android:textColor="@color/textPrimary"
         android:textColorHint="@color/textSecondary"
         android:textSize="20sp"
